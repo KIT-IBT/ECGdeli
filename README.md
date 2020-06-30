@@ -1,1 +1,1 @@
-# ECGdeli - A delicious ECG framework
+# ECGdeli - ECG delicatessen
