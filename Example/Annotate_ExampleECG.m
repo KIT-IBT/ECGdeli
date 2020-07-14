@@ -25,18 +25,26 @@
 %
 % Required Input: Example ECG (arbitrary number of leads, use e.g. the one provided in the Example folder: 'Example/s0273lre_signal.mat')   
 %
+%
+% The example signal is taken from PTB Diagnostic ECG Database [1], available on physionet [2].
+% [1] Bousseljot R, Kreiseler D, Schnabel, A. Nutzung der EKG-Signaldatenbank CARDIODAT der PTB über das Internet. Biomedizinische Technik, Band 40, Ergänzungsband 1 (1995) S 317 
+% [2] Goldberger A, Amaral L, Glass L, Hausdorff J, Ivanov PC, Mark R, Mietus JE, Moody GB, Peng CK, Stanley HE. PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals. Circulation [Online]. 101 (23), pp. e215–e220.
+%
+%
 % Revision history:
 %
 %
 %%
+clear 
+
 addpath(genpath('.')); % add current directory
 
 % load 12 lead ECG signal
 
-load('Example/s0273lre_signal.mat')
+load('Example/nECG.mat')
 
 ecg = signal;
-Fs = 1000; % specify sample rate
+Fs = samplerate; % specify sample rate
 
 % visualize raw input signal
 figure; 

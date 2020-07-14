@@ -462,8 +462,8 @@ else
     end 
     
     donoff=round(25e-3*samplerate);
-    QRSonPOS_vector=QPOS_vector-donoff;
-    QRSoffPOS_vector=SPOS_vector+donoff;
+    QRSonPOS_vector=max(1,QPOS_vector-donoff);
+    QRSoffPOS_vector=min(SPOS_vector+donoff,size(signal,1));
 end
 
 %Place vectors with QRS peaks in the FPT table
