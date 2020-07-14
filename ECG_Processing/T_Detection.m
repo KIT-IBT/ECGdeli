@@ -45,7 +45,7 @@
 %
 
 
-function [FPT,signal,intervalSigmoid,Dx,isoPosition,T_type,TON,TOFF,Dx1,Dx2] = T_Detection(signal,samplerate,FPT)
+function [FPT] = T_Detection(signal,samplerate,FPT)
 
 disp('Detecting T Waves...')
 
@@ -417,8 +417,8 @@ for i=1:size(FPT,1)
         iso=signal_prefiltered(isoPosition(i-1));
     end
     if L_width<2 || R_width<2 || TPEAK_vector(i)+R_width>length(Dx)
-        TON_vector(i)= FPT(i,8)+round(75e-3*samplerate)+1;
-        TOFF_vector(i)=TPEAK_vector(i)+round(75e-3*samplerate)-1;
+        TON_vector(i)= FPT(i,8)+round(75e-3*samplerate);
+        TOFF_vector(i)=TPEAK_vector(i)+round(75e-3*samplerate);
     else    
         %find all possible peaks for Ton at lvl and lvl-1
         [~,loco_on1]= findpeaks(Dx(TPEAK_vector(i)-L_width:TPEAK_vector(i),lvl));
@@ -458,13 +458,17 @@ for i=1:size(FPT,1)
         %no peaks at lvl found
         if isempty(loco_on_lvl)
             if ~isempty(loco_on_lvl1)
-                if length(loco_on_lvl1)>1 && abs(iso-signal(loco_on_lvl1(end-1)))<abs(iso-signal(loco_on_lvl1(end))) && abs(loco_on_lvl1(end-1)-TON(i))<abs(loco_on_lvl1(end)-TON(i)) && signal(loco_on_lvl1(end))>0.5*abs(signal(TPEAK_vector(i)))
+                if length(loco_on_lvl1)>1 && (abs(loco_on_lvl1(end-1)-TON(i))<abs(loco_on_lvl1(end)-TON(i)) || abs(signal(loco_on_lvl1(end)))>0.5*abs(signal(TPEAK_vector(i))))
                     TON_vector(i)=loco_on_lvl1(end-1);
                 else
                     TON_vector(i)=loco_on_lvl1(end);
                 end
             else
-                TON_vector(i)=FPT(i,6)+round(75e-3*samplerate)+1;
+                if FPT(i,8)+round(75e-3*samplerate)-TPEAK_vector(i)<50e-3*samplerate
+                    TON_vector(i) = TPEAK_vector(i)-L_width;
+                else
+                    TON_vector(i)=FPT(i,8)+round(75e-3*samplerate);
+                end
             end
         %second last peak
         elseif length(loco_on_lvl)>1 && signal(TPEAK_vector(i))<iso && (Dx(loco_on_lvl(end-1),5)>iso || abs(Dx(loco_on_lvl(end-1),5))<abs(10*iso))
@@ -482,13 +486,13 @@ for i=1:size(FPT,1)
         %no peaks at lvl found
         if isempty(loco_off_lvl)
             if ~isempty(loco_off_lvl1)
-                if length(loco_off_lvl1)>1 && abs(iso-signal(loco_off_lvl1(2)))<abs(iso-signal(loco_off_lvl1(1))) && abs(loco_off_lvl1(2)-TOFF(i))<abs(loco_off_lvl1(1)-TOFF(i)) && signal(loco_off_lvl1(1))>0.5*abs(signal(TPEAK_vector(i)))
+                if length(loco_off_lvl1)>1 && (abs(loco_off_lvl1(2)-TOFF(i))<abs(loco_off_lvl1(1)-TOFF(i)) || abs(signal(loco_off_lvl1(1)))>0.5*abs(signal(TPEAK_vector(i))))
                     TOFF_vector(i)=loco_off_lvl1(2);
                 else
                     TOFF_vector(i)=loco_off_lvl1(1);
                 end
             else
-                TOFF_vector(i)=TPEAK_vector(i)+round(75e-3*samplerate)-1;
+                TOFF_vector(i)=TPEAK_vector(i)+round(75e-3*samplerate);
             end
         %first peak of WT at lvl
         elseif isempty(loco_off_lvl1)
