@@ -9,7 +9,7 @@ author    = {Pilia, N., Nagel, C., Lenis, G., Becker, S., D\"ossel, O., Loewe, A
 title     = {ECGdeli - An Open Source ECG Delineation Toolbox for MATLAB},
 year      = {2020},
 url       = {https://github.com/KIT-IBT/ECGdeli},
-doi       = {},
+doi       = {https://doi.org/10.5281/zenodo.3944621},
 }
 ```
 
