@@ -13,4 +13,4 @@ doi       = {https://doi.org/10.5281/zenodo.3944621},
 }
 ```
 
-Please check this information regularly, the citation will be updated soon with an publication.
+Please check this information regularly, the citation will be updated soon with a publication.
