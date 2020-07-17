@@ -1,4 +1,4 @@
-# ECGdeli - ECG delicatessen
+# ECGdeli - ECG delineation algorithms
 
 ECGdeli is a Matlab toolbox for filtering and processing single or multilead ECGs. 
 
