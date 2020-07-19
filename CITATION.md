@@ -1,7 +1,7 @@
 ## Attribution
 
 If you use this software, please cite it as follows:
-*Pilia, N., Nagel, C., Lenis, G., Becker, S., D\"ossel, O., Loewe, A. (2020). ECGdeli - An Open Source ECG Delineation Toolbox for MATLAB. https://github.com/KIT-IBT/ECGdeli 
+*Pilia, N., Nagel, C., Lenis, G., Becker, S., Dössel, O., Loewe, A. (2020). ECGdeli - An Open Source ECG Delineation Toolbox for MATLAB. https://github.com/KIT-IBT/ECGdeli 
 
 ```bibtex
 @misc{ecgdeli,
