@@ -44,12 +44,10 @@
 %
 
 function FPT=QRS_Detection(signal,samplerate,varargin)
-
+flag_posR = false; 
 if ~isempty(varargin)
     if strcmp(varargin{1},'peaksQRS')
         flag_posR = true; 
-    else
-        flag_posR = false; 
     end
     
     if size(varargin,1) == 2 && strcmp(varargin{2},'mute') || strcmp(varargin{1},'m')
@@ -85,9 +83,9 @@ end
 %% Denoise ECG
 %Highpass 5Hz to reduce baseline wander, aminorate the T and P waves and
 %create a QRS complex with strong Q and S waves
-highpass_frequency=5;
+highpass_frequency=0.5;
 %Lowpass 30Hz to reduce high frequency noise
-lowpass_frequency=100;
+lowpass_frequency=30;
 %Filtering
 signal=ECG_High_Low_Filter(signal,samplerate,highpass_frequency,lowpass_frequency,'B');
 
@@ -110,7 +108,7 @@ end
 %% Wavelet tranformation
 % x: level in which we find frequency contents around 75 Hz. Here we find
 % the most important components for QRS detection.
-x = ceil(log2(samplerate/2/45));
+x = ceil(log2(samplerate/2/30));
 if x<1
     x=1;
 end
