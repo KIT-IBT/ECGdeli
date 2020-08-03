@@ -95,7 +95,7 @@ for i=1:NOC
         FPT_Cell{i}=Check_R_Peaks_Multi(signal(:,i),samplerate,FPT_MultiChannel);
     else
         %Detect QRS complexes in the ecg signal
-        FPT_Cell{i}=QRS_Detection(signal(:,i),samplerate, 'peaksQRS');%Detection of R peaks in every ecg lead
+        FPT_Cell{i}=QRS_Detection(signal(:,i),samplerate);%Detection of R peaks in every ecg lead
     end    
     if isempty(FPT_Cell{i}) %Check if FPT table is empty
         flagemptyFPT=flagemptyFPT+1;
