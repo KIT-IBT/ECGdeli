@@ -222,7 +222,7 @@ for j=1:nrep
         if H>1
             dNR=NR_vec(H)-NR_vec(H-1);
             if dNR<=0 || H==length(threshold)
-                if isempty(Bound_A) || isempty(Bound_B)
+                if isempty(Bound_A) || isempty(Bound_B) || size(Bound_A,1) == 1 || size(Bound_B,1) == 1 
                     %For the case that Bound_A or Bound B are empty and no
                     %QRS complex was detected, empty, the next iteration continues
                     continue
