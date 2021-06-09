@@ -41,10 +41,10 @@ addpath(genpath('.')); % add current directory
 
 % load 12 lead ECG signal
 
-load('Example/nECG.mat')
+load('Example/s0273lre_signal.mat')
 
 ecg = signal;
-Fs = samplerate; % specify sample rate
+Fs = 1000; % specify sample rate
 
 % visualize raw input signal
 figure; 
@@ -71,7 +71,7 @@ linkaxes([ax1, ax2],'xy')
 % filter noise frequencies
 % frequencies are already optimized for ECG signals (literature values):
 % Lowpass: 120 Hz, Highpass: 0.3 Hz, Bandstop (49-51 Hz)
-[ecg_filtered_frq] = ECG_High_Low_Filter(ecg,Fs,1,150);
+[ecg_filtered_frq] = ECG_High_Low_Filter(ecg,Fs,1,40);
 ecg_filtered_frq=Notch_Filter(ecg_filtered_frq,Fs,50,1);
 
 % visualizing waveforms
@@ -99,7 +99,7 @@ linkaxes([ax1, ax2, ax3, ax4],'xy')
 [FPT_MultiChannel,FPT_Cell]=Annotate_ECG_Multi(ecg_filtered_isoline,Fs);
 
 % extract FPTs for Channel 1 (Lead I):
-FPT_LeadI = FPT_Cell{1,1};
+FPT_LeadI = FPT_Cell{3,1};
 
 Pwave_samples = reshape(FPT_LeadI(:,1:3), [1,size(FPT_LeadI(:,1:3),1)*size(FPT_LeadI(:,1:3),2)]);
 QRS_samples = reshape([FPT_LeadI(:,4),FPT_LeadI(:,6), FPT_LeadI(:,8)] , [1,size(FPT_LeadI(:,1:3),1)*size(FPT_LeadI(:,1:3),2)]);
@@ -107,11 +107,11 @@ Twave_samples = reshape(FPT_LeadI(:,10:12), [1,size(FPT_LeadI(:,10:12),1)*size(F
 
 % visualize fiducial points
 figure; 
-plot(ecg_filtered_isoline(:,1));
+plot(ecg_filtered_isoline(:,3));
 hold on; 
-scatter(Pwave_samples, ecg_filtered_isoline(Pwave_samples,1), 'g', 'filled');
-scatter(QRS_samples, ecg_filtered_isoline(QRS_samples,1), 'r', 'filled');
-scatter(Twave_samples, ecg_filtered_isoline(Twave_samples,1), 'b', 'filled');
+scatter(Pwave_samples, ecg_filtered_isoline(Pwave_samples,3), 'g', 'filled');
+scatter(QRS_samples, ecg_filtered_isoline(QRS_samples,3), 'r', 'filled');
+scatter(Twave_samples, ecg_filtered_isoline(Twave_samples,3), 'b', 'filled');
 title('Filtered ECG');
 xlabel('samples'); ylabel('voltage');
 legend({'ECG signal', 'P wave', 'QRS complex', 'T wave'});
