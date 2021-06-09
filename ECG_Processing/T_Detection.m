@@ -454,7 +454,11 @@ for i=1:size(FPT,1)
         Dy_distribution_R=cumsum(Dy_density(L_width+1:end)/sum(Dy_density(L_width+1:end)));
     
         %Ton
-        TON(i) = TPEAK_vector(i)-L_width+find(Dy_distribution_L>=threshold_distribution,1,'first');
+        if ~isempty(find(Dy_distribution_L>=threshold_distribution,1,'first'))
+            TON(i) = TPEAK_vector(i)-L_width+find(Dy_distribution_L>=threshold_distribution,1,'first');
+        else
+            TON(i) = TPEAK_vector(i)-80*(samplerate/1000); % assuming fixed length of 80ms. 
+        end
         %no peaks at lvl found
         if isempty(loco_on_lvl)
             if ~isempty(loco_on_lvl1)
@@ -482,7 +486,11 @@ for i=1:size(FPT,1)
         end
     
         %Toff
-        TOFF(i)=TPEAK_vector(i)-1+find(Dy_distribution_R>=1-threshold_distribution,1,'first');
+        if ~isempty(find(Dy_distribution_R>=1-threshold_distribution,1,'first'))
+            TOFF(i)=TPEAK_vector(i)-1+find(Dy_distribution_R>=1-threshold_distribution,1,'first');
+        else
+            TOFF(i) = TPEAK_vector(i)-1+80*(samplerate/1000); % assuming fixed length of 80ms. 
+        end
         %no peaks at lvl found
         if isempty(loco_off_lvl)
             if ~isempty(loco_off_lvl1)
