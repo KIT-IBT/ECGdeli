@@ -17,7 +17,11 @@ Please note the following points:
 * We publish the software as it is and do not guarantee proper performance. Nevertheless, we highly acknowledge feedback. Use the issues functionality in github.
 * We will publish a guide for contribution soon!
 
-
+ECGdeli depends on the following MATLAB toolboxes:
+* image_toolbox
+* signal_toolbox
+* statistics_toolbox
+* wavelet_toolbox
 
 [1] Bousseljot R, Kreiseler D, Schnabel, A. Nutzung der EKG-Signaldatenbank CARDIODAT der PTB über das Internet. Biomedizinische Technik, Band 40, Ergänzungsband 1 (1995) S 317
 
