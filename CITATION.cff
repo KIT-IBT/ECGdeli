@@ -1,0 +1,29 @@
+cff-version: 1.1.0
+message: If you use this software, please cite the paper describing it as below.
+authors: 
+  - family-names: Pilia
+    given-names: Nicolas
+  - family-names: Nagel
+    given-names: Claudia
+  - family-names: Lenis
+    given-names: Gustavo
+  - family-names: Becker
+    given-names: Silvia
+  - family-names: "Dössel"
+    given-names: Olaf
+  - family-names: Loewe
+    given-names: Axel
+  
+title: ECGdeli - ECG delineation algorithms
+version: all
+date-released: 2020-07-01
+license-url: https://github.com/KIT-IBT/ECGdeli/blob/master/LICENSE
+repository-code: https://github.com/KIT-IBT/ECGdeli
+references:
+ - type: article
+ - doi: 10.1016/j.softx.2020.100639. 
+ - title: ECGdeli - An open source ECG delineation toolbox for MATLAB
+ - journal: SoftwareX
+ - year: 2021
+ - volume: 13
+ - pages: 100639
