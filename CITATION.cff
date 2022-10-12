@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+title: ECGdeli - ECG delineation algorithms
+message: "Please cite this software using the metadata from 'preferred-citation'."
+authors: 
+  - given-names: Nicolas
+    family-names: Pilia
+    affiliation: Karlsruhe Institute of Technology (KIT)
+    orcid: https://orcid.org/0000-0001-8247-379X
+  - given-names: Claudia
+    family-names: Nagel
+    affiliation: Karlsruhe Institute of Technology (KIT)
+    orcid: https://orcid.org/0000-0003-4193-7257
+  - given-names: Gustavo
+    family-names: Lenis
+    affiliation: Karlsruhe Institute of Technology (KIT)
+    orcid: https://orcid.org/0000-0002-8479-0040
+  - given-names: Silvia
+    family-names: Becker 
+    orcid: https://orcid.org/0000-0002-1135-6446
+  - given-names: Olaf
+    family-names: Dössel
+    affiliation: Karlsruhe Institute of Technology (KIT)
+    orcid: https://orcid.org/0000-0003-4551-7970
+  - given-names: Axel
+    family-names: Loewe
+    email: axel.loewe@kit.edu
+    affiliation: Karlsruhe Institute of Technology (KIT)
+    orcid: https://orcid.org/0000-0002-2487-4744  
+version: all
+date-released: 2020-07-01
+license: GPL-3.0-or-later
+repository-code: https://github.com/KIT-IBT/ECGdeli
+preferred-citation:
+ type: article
+ doi: 10.1016/j.softx.2020.100639
+ title: ECGdeli - An open source ECG delineation toolbox for MATLAB
+ authors:
+   - family-names: Pilia
+     given-names: Nicolas
+   - family-names: Nagel
+     given-names: Claudia
+   - family-names: Lenis
+     given-names: Gustavo
+   - family-names: Becker
+     given-names: Silvia
+   - family-names: Dössel
+     given-names: Olaf
+   - family-names: Loewe
+     given-names: Axel
+ journal: SoftwareX
+ year: 2021
+ volume: 13
+ pages: 100639
