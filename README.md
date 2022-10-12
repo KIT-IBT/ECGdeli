@@ -15,7 +15,7 @@ Please note the following points:
 * All algorithms must be used with ECGs as standing vectors or matrices with leads columnwise arranged (temporal dimension in lines)
 * Please respect our code of conduct (CODE_OF_CONDUCT.md)
 * We publish the software as it is and do not guarantee proper performance. Nevertheless, we highly acknowledge feedback. Use the issues functionality in github.
-* We will publish a guide for contribution soon!
+* If you feel like contributing, just open a pull request.
 
 ECGdeli depends on the following MATLAB toolboxes:
 * image_toolbox
