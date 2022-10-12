@@ -51,3 +51,7 @@ preferred-citation:
  year: 2021
  volume: 13
  pages: 100639
+identifiers:
+- description: This is the archived snapshot of version v1.1 of ECGdeli
+  type: doi
+  value: 10.5281/zenodo.7191379
