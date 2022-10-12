@@ -37,7 +37,7 @@
 %%
 clear 
 
-addpath(genpath('.')); % add current directory
+addpath(genpath('..')); % add parent directory
 
 % load 12 lead ECG signal
 
@@ -128,4 +128,7 @@ scatter(1:1:nbrBeats, Amplitude_feature_12leads(7,:,3), 'ro'); % lead V1 (entry 
 xlabel('Beat ID')
 ylabel('R peak amplitude in mV') 
 legend({'R amplitude in II', 'R amplitude in V1'})
+
+%% Determine P-wave morphology
+[PMorph, Peaks] = Get_P_Morphology(ecg, Fs, FPT_Cell);
 

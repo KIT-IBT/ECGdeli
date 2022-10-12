@@ -6,7 +6,7 @@ If you use this software, please cite it as follows:
 
 ```bibtex
 @article{ECGdeli
-title = {ECGdeli - An open source ECG delineation toolbox for MATLAB},
+title = {ECGdeli- An open source ECG delineation toolbox for MATLAB},
 journal = {SoftwareX},
 volume = {13},
 pages = {100639},
