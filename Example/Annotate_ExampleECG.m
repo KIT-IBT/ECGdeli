@@ -5,7 +5,7 @@
 %    Ver. 1.0.0
 %
 %    Created:           Claudia Nagel (30.06.2020)
-%    Last modified:     Claudia Nagel (30.06.2020)
+%    Last modified:     Claudia Nagel (12.10.2022)
 %
 %    Institute of Biomedical Engineering
 %    Karlsruhe Institute of Technology
@@ -115,4 +115,17 @@ scatter(Twave_samples, ecg_filtered_isoline(Twave_samples,3), 'b', 'filled');
 title('Filtered ECG');
 xlabel('samples'); ylabel('voltage');
 legend({'ECG signal', 'P wave', 'QRS complex', 'T wave'});
+
+%% Calculate timing and amplitude features from FPT table
+[Amplitude_feature_12leads] = ExtractAmplitudeFeaturesFromFPT(FPT_Cell, ecg_filtered_isoline);
+[Timing_feature_12leads, Timing_feature_sync] = ExtractIntervalFeaturesFromFPT(FPT_Cell, FPT_MultiChannel);
+
+% visualize R amplitude for lead II and V1
+figure; hold all; 
+nbrBeats = size(Amplitude_feature_12leads, 2);
+scatter(1:1:nbrBeats, Amplitude_feature_12leads(2,:,3), 'r+'); % lead II (entry 2), all beats, R peak amplitude (entry 3)
+scatter(1:1:nbrBeats, Amplitude_feature_12leads(7,:,3), 'ro'); % lead V1 (entry 7), all beats, R peak amplitude (entry 3)
+xlabel('Beat ID')
+ylabel('R peak amplitude in mV') 
+legend({'R amplitude in II', 'R amplitude in V1'})
 
