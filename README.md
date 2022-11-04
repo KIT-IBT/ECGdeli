@@ -1,6 +1,8 @@
 # ECGdeli - ECG delineation algorithms
 
 ECGdeli is a Matlab toolbox for filtering and processing single or multilead ECGs. 
+Detailed description:
+*Pilia, N., Nagel, C., Lenis, G., Becker, S., Dössel, O., Loewe, A. (2021) ECGdeli - An Open Source ECG Delineation Toolbox for MATLAB. SoftwareX 13:100639. [doi:10.1016/j.softx.2020.100639](https://doi.org/10.1016/j.softx.2020.100639)* 
 
 The filtering functionalities include:
 * baseline wander removal techniques 
