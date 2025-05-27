@@ -61,6 +61,11 @@ else
     FPT_Cell=cell(NOC,1);%Cell array containing the Fidutial Point Table of every lead   
 end
 
+if ~isa(samplerate, 'double')
+     disp('Warning: samplerate needs to be of type double. Converting to double');   
+     samplerate = double(samplerate);
+end
+
 %Check the optional inputs
 if isempty(varargin)
     process_flag='all'; %Default value
