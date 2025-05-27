@@ -251,7 +251,7 @@ for lead = 1:length(MsignalLP(1,:))
         %due to filtering frequency
         if PMorph (number,lead ) == 1
             if ~isnan(PadArray(1,lead))
-                [peaks,locs,~,~] =  findpeaks(PadArray(1:xRange(end),lead),1:xRange(end),'MinPeakProminence', 'MinPeakDistance', 0.005,'SortStr', 'descend');
+                [peaks,locs,~,~] =  findpeaks(PadArray(1:xRange(end),lead),1:xRange(end),'MinPeakProminence', 0.005, 'MinPeakDistance', 15,'SortStr', 'descend');
             else
                 [peaks,locs,~,~] =  findpeaks(MsignalLP(xRange,lead),xRange,'MinPeakProminence', 0.005,'MinPeakDistance', 15,'SortStr', 'descend');
             end
@@ -288,7 +288,7 @@ for lead = 1:length(MsignalLP(1,:))
 %--------------------------------------------------------------------------
     if PMorph (number,lead ) == -1
             if ~isnan(PadArray(1,lead))
-                [peaks,locs,~,~] =  findpeaks(PadArray(1:xRange(end),lead),1:xRange(end),'MinPeakProminence','MinPeakDistance',15, 0.005,'SortStr', 'descend');
+                [peaks,locs,~,~] =  findpeaks(PadArray(1:xRange(end),lead),1:xRange(end),'MinPeakProminence', 0.005, 'MinPeakDistance',15, 'SortStr', 'descend');
             else
                 [peaks,locs,~,~] =  findpeaks(negMsig(xRange,lead),xRange,'MinPeakProminence',0.005,'MinPeakDistance',15,'SortStr', 'descend');
             end
