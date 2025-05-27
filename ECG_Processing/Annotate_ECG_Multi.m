@@ -62,7 +62,8 @@ else
 end
 
 if ~isa(samplerate, 'double')
-    samplerate = double(samplerate);
+     disp('Warning: samplerate needs to be of type double. Converting to double');   
+     samplerate = double(samplerate);
 end
 
 %Check the optional inputs
